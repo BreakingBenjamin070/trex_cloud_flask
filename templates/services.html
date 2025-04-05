@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Облачные сервисы{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Облачные решения от Selectel</h2>
+    <ul class="list-group mt-3">
+        {% for service in services %}
+            <li class="list-group-item">{{ service }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+

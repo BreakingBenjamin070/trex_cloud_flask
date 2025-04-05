@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ server.name }}{% endblock %}
+
+{% block content %}
+    <div class="card border-danger">
+        <div class="card-body">
+            <h2 class="card-title">{{ server.name }}</h2>
+            <p class="card-text">{{ server.desc }}</p>
+            <a href="/servers" class="btn btn-danger">← Назад к списку</a>
+        </div>
+    </div>
+{% endblock %}
+
+

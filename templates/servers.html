@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Серверы Selectel{% endblock %}
+
+{% block content %}
+    <h2 class="mb-4">Доступные серверы</h2>
+    
+    <form action="/servers" method="get" class="mb-4">
+        <div class="row">
+            <div class="col-md-6">
+                <label for="type" class="form-label">Фильтр по типу:</label>
+                <select name="type" id="type" class="form-select">
+                    <option value="">Все</option>
+                    <option value="GPU">GPU</option>
+                    <option value="Storage">Хранилище</option>
+                    <option value="Compute">Вычисления</option>
+                </select>
+            </div>
+            <div class="col-md-6 d-flex align-items-end">
+                <button type="submit" class="btn btn-danger">Фильтровать</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        {% for server in servers %}
+            <div class="col-md-4">
+                <div class="card mb-3 border-danger">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ server.name }}</h5>
+                        <p class="card-text">Тип: {{ server.type }}</p>
+                        <a href="/server/{{ server.id }}" class="btn btn-outline-danger">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
